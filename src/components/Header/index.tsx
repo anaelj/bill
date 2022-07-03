@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom'
 
-import { Container } from "./styles";
+import { Container } from './styles'
 
-import Logo from "../../assets/logo.svg";
+import Logo from '../../assets/logo.svg'
 
 const Header = () => (
   <Container>
@@ -13,7 +13,7 @@ const Header = () => (
         <div>
           <img src={Logo} alt="Bill" />
         </div>
-        <span>Bill</span>
+        <span>Despesas</span>
       </div>
       <nav>
         {/* <NavLink
@@ -37,6 +37,6 @@ const Header = () => (
       </nav>
     </header>
   </Container>
-);
+)
 
-export default Header;
+export default Header
