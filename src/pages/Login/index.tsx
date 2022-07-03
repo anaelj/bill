@@ -1,12 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { MdOutlineRequestQuote } from 'react-icons/md'
 
-import { Container } from './styles'
+import { Container, Entrar, Logo } from './styles'
 
 const Login: React.FC = () => {
   return (
     <Container>
-      <MdOutlineRequestQuote color="#FB8500" />
+      <Logo>
+        <MdOutlineRequestQuote color="#FB8500" size={90} />
+      </Logo>
+      <Link to={'/viagens'}>
+        <Entrar>ENTRAR</Entrar>
+      </Link>
     </Container>
   )
 }
