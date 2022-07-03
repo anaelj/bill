@@ -8,6 +8,14 @@ export const Container = styled.div`
   width: 100%;
   padding: 40px 20px;
   height: 100%;
+  flex: 2;
+`;
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 100vh;
 `;
 
 export const Title = styled.h1`
