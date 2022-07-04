@@ -1,19 +1,19 @@
-import income from '../../assets/income.svg'
-import outcome from '../../assets/outcome.svg'
-import total from '../../assets/total.svg'
+import income from "../../assets/income.svg";
+import outcome from "../../assets/outcome.svg";
+import total from "../../assets/total.svg";
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
-import { Container, CardContainer, Card, MainContainer } from './styles'
-import { MdLocalShipping } from 'react-icons/md'
+import { Container, CardContainer, Card, MainContainer } from "./styles";
+import { MdLocalShipping } from "react-icons/md";
 
 const Expenses: React.FC = () => {
   return (
     <MainContainer>
       <Header
         icon={<MdLocalShipping color="#FB8500" size={24} />}
-        label={'Viagens'}
+        label={"Viagens"}
       />
       <Container>
         <CardContainer>
@@ -40,9 +40,33 @@ const Expenses: React.FC = () => {
           </Card>
         </CardContainer>
       </Container>
-      <Footer />
+      <Footer>
+        <div
+          style={{
+            display: "flex",
+            alignContent: "center",
+            marginTop: "-220px",
+            position: "absolute",
+          }}
+        >
+          <Card total>
+            <header
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignContent: "space-between",
+                justifyContent: "flex-start",
+              }}
+            >
+              <p>Total</p>
+              <img src={total} alt="Total" />
+            </header>
+            <h1 data-testid="balance-total">{100}</h1>
+          </Card>
+        </div>
+      </Footer>
     </MainContainer>
-  )
-}
+  );
+};
 
-export default Expenses
+export default Expenses;

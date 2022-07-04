@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { MdCircle, MdLocalShipping } from 'react-icons/md'
+import React from "react";
+import { Link } from "react-router-dom";
+import { MdCircle, MdLocalShipping } from "react-icons/md";
 
-import { CardTravel, ContainerTravels, MainContainer } from './styles'
-import { DefaultPalettColors } from '../../assets/colors'
+import { CardTravel, ContainerTravels, MainContainer } from "./styles";
+import { DefaultPalettColors } from "../../assets/colors";
 
-import { EnumStatusTravel, travels } from '../../mocks'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import { EnumStatusTravel, travels } from "../../mocks";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const Travels: React.FC = () => {
   return (
@@ -19,16 +19,16 @@ const Travels: React.FC = () => {
             size={24}
           />
         }
-        label={'Viagens'}
+        label={"Viagens"}
       />
       <ContainerTravels>
-        {travels.map(travel => (
+        {travels.map((travel) => (
           <Link
-            to={'/expenses'}
+            to={"/expenses"}
             style={{
-              textDecoration: 'none',
+              textDecoration: "none",
               height: 100,
-              width: '100%'
+              width: "100%",
             }}
           >
             <CardTravel>
@@ -38,9 +38,9 @@ const Travels: React.FC = () => {
               </div>
               <div
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start'
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
                 }}
               >
                 <span>{travel.origin}</span>
@@ -58,9 +58,18 @@ const Travels: React.FC = () => {
           </Link>
         ))}
       </ContainerTravels>
-      <Footer />
+      <Footer>
+        <div>
+          <MdCircle color={DefaultPalettColors.travel.green} />
+          <span>Concluído</span>
+        </div>
+        <div>
+          <MdCircle color={DefaultPalettColors.travel.orange} />
+          <span>Em andamento</span>
+        </div>
+      </Footer>
     </MainContainer>
-  )
-}
+  );
+};
 
-export default Travels
+export default Travels;

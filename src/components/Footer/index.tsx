@@ -1,22 +1,12 @@
-import React from 'react'
-import { MdCircle } from 'react-icons/md'
+import React from "react";
+import { Container } from "./styles";
 
-import { DefaultPalettColors } from '../../assets/colors'
-import { Container } from './styles'
-
-const Footer: React.FC = () => {
-  return (
-    <Container>
-      <div>
-        <MdCircle color={DefaultPalettColors.travel.green} />
-        <span>Concluído</span>
-      </div>
-      <div>
-        <MdCircle color={DefaultPalettColors.travel.orange} />
-        <span>Em andamento</span>
-      </div>
-    </Container>
-  )
+interface props {
+  children?: any;
 }
 
-export default Footer
+const Footer = ({ children }: props) => {
+  return <Container>{children}</Container>;
+};
+
+export default Footer;
