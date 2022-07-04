@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { MdOutlineRequestQuote } from 'react-icons/md'
 
-import { Container, Entrar, Logo } from './styles'
+import { Container, LoginBtn, Logo } from './styles'
 
 const Login: React.FC = () => {
   return (
@@ -10,8 +10,8 @@ const Login: React.FC = () => {
       <Logo>
         <MdOutlineRequestQuote color="#FB8500" size={90} />
       </Logo>
-      <Link to={'/viagens'}>
-        <Entrar>ENTRAR</Entrar>
+      <Link to={'/travels'}>
+        <LoginBtn>ENTRAR</LoginBtn>
       </Link>
     </Container>
   )

@@ -24,10 +24,9 @@ export const Logo = styled.div`
   justify-content: center;
 `
 
-export const Entrar = styled.button`
+export const LoginBtn = styled.button`
   width: 200px;
   height: 50px;
-  font-family: 'Poppins', sans-serif;
   border: none;
   border-radius: 5px;
   color: white;
