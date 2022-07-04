@@ -1,7 +1,6 @@
-
 export const DefaultPalettColors = {
-  travel : {
-    green : '#007f5f',
-    orange: '#FB8500'
-  }
-}
+  travel: {
+    green: "#009f5f",
+    orange: "#FB8500",
+  },
+};

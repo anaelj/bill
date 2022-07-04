@@ -1,15 +1,15 @@
-import total from "../../assets/total.svg";
-
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Card, Row, Col } from "react-bootstrap";
 
 import { Container, MainContainer } from "./styles";
-import { MdLocalShipping } from "react-icons/md";
+import { MdLocalShipping, MdPostAdd } from "react-icons/md";
 import { expenses } from "../../mocks";
 import { getIcon } from "../../assets/makeIcon";
+import { useNavigate } from "react-router-dom";
 
-const Expenses: React.FC = () => {
+const Expenses = () => {
+  const navigate = useNavigate();
   return (
     <MainContainer>
       <Header
@@ -36,89 +36,47 @@ const Expenses: React.FC = () => {
                   <Col xs={4} style={{ marginLeft: "0px", padding: "2px" }}>
                     {expense.date}
                   </Col>
-                  <Col xs={6} style={{ marginLeft: "0px", padding: "2px" }}>
+                  <Col xs={5} style={{ marginLeft: "0px", padding: "2px" }}>
                     {expense.describe}
                   </Col>
-                  <Col xs={2}>{expense.total}</Col>
+                  <Col xs={3} style={{ marginLeft: "0px", padding: "2px" }}>
+                    {expense.total.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </Col>
                 </Row>
               </Card.Text>
             </Card.Body>
           </Card>
-
-          // <CardContainer
-          //   style={{
-          //     display: "flex",
-          //     margin: "5px",
-          //     alignItems: "stretch",
-          //     gap: "5px",
-          //     height: "60px",
-          //     minWidth: "100%",
-          //   }}
-          // >
-          //   <div
-          //     style={{
-          //       display: "flex",
-          //       flexDirection: "column",
-          //       flex: "1",
-          //       alignItems: "center",
-          //       width: "120px",
-          //       height: "60px",
-          //     }}
-          //   >
-          //     <span>{expense.date}</span>
-          //     <span>{expense.number}</span>
-          //   </div>
-          //   <div
-          //     style={{
-          //       display: "flex",
-          //       flex: "2",
-          //       margin: "5px",
-          //       alignItems: "flex-start",
-          //       height: "60px",
-          //       flexDirection: "column",
-          //       width: "100%",
-          //     }}
-          //   >
-          //     <span>{expense.describe}</span>
-          //     <span>{expense.category.name}</span>
-          //   </div>
-          //   <div
-          //     style={{
-          //       display: "flex",
-          //       flexDirection: "column",
-          //       flex: "1",
-          //       width: "40px",
-          //     }}
-          //   >
-          //     <span>{getIcon(expense.category.type)}</span>
-          //   </div>
-          // </CardContainer>
         ))}
       </Container>
       <Footer>
-        <div
+        <Card
+          text={"dark"}
+          bg={"light"}
           style={{
-            display: "flex",
-            alignContent: "center",
-            marginTop: "-160px",
+            width: "200px",
+            borderRadius: "0.8em",
             position: "absolute",
+            marginTop: "-80px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
+          className="mb-2"
         >
-          <div>
-            <header
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignContent: "space-between",
-                justifyContent: "flex-start",
-              }}
-            >
-              <p>Total</p>
-              <img src={total} alt="Total" />
-            </header>
-            <h1 data-testid="balance-total">{100}</h1>
-          </div>
-        </div>
+          <Card.Header>Total</Card.Header>
+          <Card.Body>
+            <Card.Title>R$ 870.00</Card.Title>
+          </Card.Body>
+        </Card>
+        <Row style={{ width: "100%" }}>
+          <Col xs={10}></Col>
+          <Col xs={2}>
+            <MdPostAdd size={32} onClick={() => navigate("/expenseitem")} />
+          </Col>
+        </Row>
       </Footer>
     </MainContainer>
   );
