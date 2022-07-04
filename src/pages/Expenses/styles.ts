@@ -9,6 +9,7 @@ export const Container = styled.div`
   padding: 40px 20px;
   height: 100%;
   flex: 2;
+  overflow-y: scroll;
 `;
 export const MainContainer = styled.div`
   display: flex;
