@@ -1,40 +1,17 @@
-import React from 'react'
-
-import { NavLink } from 'react-router-dom'
-
 import { Container } from './styles'
 
-import Logo from '../../assets/logo.svg'
+interface props {
+  icon: any
+  label: string
+}
 
-const Header = () => (
+const Header = ({ icon, label }: props) => (
   <Container>
     <header>
       <div>
-        <div>
-          <img src={Logo} alt="Bill" />
-        </div>
-        <span>Despesas</span>
+        <div>{icon}</div>
+        <span>{label}</span>
       </div>
-      <nav>
-        {/* <NavLink
-          style={{
-            paddingBottom: "7px",
-            borderBottom: "3px solid #FF872C",
-          }}
-          to="/"
-        >
-          Listagem
-        </NavLink> */}
-        {/* <NavLink
-          style={{
-            paddingBottom: "7px",
-            borderBottom: "3px solid #FF872C",
-          }}
-          to="/import"
-        >
-          Importar
-        </NavLink> */}
-      </nav>
     </header>
   </Container>
 )
