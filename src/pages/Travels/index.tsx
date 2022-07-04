@@ -1,17 +1,17 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { MdCircle, MdLocalShipping } from "react-icons/md";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { MdCircle, MdLocalShipping } from 'react-icons/md'
 
-import { ContainerTravels, MainContainer } from "./styles";
-import { DefaultPalettColors } from "../../assets/colors";
+import { ContainerTravels, MainContainer } from './styles'
+import { DefaultPalettColors } from '../../assets/colors'
 
-import { EnumStatusTravel, travels } from "../../mocks";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { Card, Row, Col } from "react-bootstrap";
+import { EnumStatusTravel, travels } from '../../mocks'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import { Card, Row, Col } from 'react-bootstrap'
 
 const Travels = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <MainContainer>
@@ -22,17 +22,17 @@ const Travels = () => {
             size={24}
           />
         }
-        label={"Viagens"}
+        label={'Viagens'}
       />
       <ContainerTravels>
-        {travels.map((travel) => (
+        {travels.map(travel => (
           <Card
             key={travel.number}
-            text={"light"}
-            bg={"secondary"}
-            style={{ width: "100%", margin: "0px" }}
+            text={'light'}
+            bg={'secondary'}
+            style={{ width: '100%', margin: '0px' }}
             className="mb-2"
-            onClick={() => navigate("/expenses")}
+            onClick={() => navigate('/expenses')}
           >
             <Card.Header>
               <span>Viagem: </span>
@@ -40,8 +40,8 @@ const Travels = () => {
             </Card.Header>
             <Card.Body>
               <Card.Text>
-                <Row style={{ margin: "0px" }}>
-                  <Col xs={11} style={{ marginLeft: "0px", padding: "2px" }}>
+                <Row style={{ margin: '0px' }}>
+                  <Col xs={11} style={{ marginLeft: '0px', padding: '2px' }}>
                     <Row>
                       <span>{travel.origin}</span>
                     </Row>
@@ -49,7 +49,7 @@ const Travels = () => {
                       <span>{travel.destiny}</span>
                     </Row>
                   </Col>
-                  <Col xs={1} style={{ marginLeft: "0px", padding: "2px" }}>
+                  <Col xs={1} style={{ marginLeft: '0px', padding: '2px' }}>
                     <MdCircle
                       size={16}
                       color={
@@ -76,7 +76,7 @@ const Travels = () => {
         </div>
       </Footer>
     </MainContainer>
-  );
-};
+  )
+}
 
-export default Travels;
+export default Travels
