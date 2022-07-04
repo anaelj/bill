@@ -3,7 +3,7 @@ import Footer from '../../components/Footer'
 import { Card, Row, Col } from 'react-bootstrap'
 
 import { Container, MainContainer } from './styles'
-import { MdLocalShipping, MdPostAdd } from 'react-icons/md'
+import { MdArrowBack, MdLocalShipping, MdPostAdd } from 'react-icons/md'
 import { expenses } from '../../mocks'
 import { getIcon } from '../../assets/makeIcon'
 import { useNavigate } from 'react-router-dom'
@@ -85,6 +85,12 @@ const Expenses = () => {
             <Card.Title>R$ 870.00</Card.Title>
           </Card.Body>
         </Card>
+        <Row style={{ width: '100%' }}>
+          <Col xs={1}></Col>
+          <Col xs={2}>
+            <MdArrowBack size={32} onClick={() => navigate('/travels')} />
+          </Col>
+        </Row>
         <Row style={{ width: '100%' }}>
           <Col xs={10}></Col>
           <Col xs={2}>

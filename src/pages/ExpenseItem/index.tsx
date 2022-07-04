@@ -1,42 +1,47 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import { Row, Col, Form, Button } from 'react-bootstrap'
 
-import { Container, MainContainer } from "./styles";
-import { MdLocalShipping, MdCheck, MdAddAPhoto } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { expenseCategory } from "../../mocks";
-import Webcam from "react-webcam";
-import { useCallback, useRef, useState } from "react";
+import { Container, MainContainer } from './styles'
+import {
+  MdLocalShipping,
+  MdCheck,
+  MdAddAPhoto,
+  MdArrowBack
+} from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
+import { expenseCategory } from '../../mocks'
+import Webcam from 'react-webcam'
+import { useCallback, useRef, useState } from 'react'
 
 export const ExpenseItem = () => {
   const videoConstraints = {
-    facingMode: { exact: "environment" },
+    facingMode: { exact: 'environment' }
     // facingMode: "user",
-  };
+  }
 
-  const webcamRef = useRef<Webcam>(null);
-  const [imageFromCamera, setImageFromCamera] = useState("");
+  const webcamRef = useRef<Webcam>(null)
+  const [imageFromCamera, setImageFromCamera] = useState('')
 
   const capture = useCallback(() => {
     if (webcamRef) {
-      console.log(webcamRef);
-      const imageFromCamera = webcamRef?.current?.getScreenshot();
+      console.log(webcamRef)
+      const imageFromCamera = webcamRef?.current?.getScreenshot()
       if (imageFromCamera) {
-        setShowCamera(false);
-        setImageFromCamera(imageFromCamera);
+        setShowCamera(false)
+        setImageFromCamera(imageFromCamera)
       }
     }
-  }, [webcamRef]);
+  }, [webcamRef])
 
-  const [showCamera, setShowCamera] = useState(false);
+  const [showCamera, setShowCamera] = useState(false)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <MainContainer>
       <Header
         icon={<MdLocalShipping color="#FB8500" size={24} />}
-        label={"Item de Despesa"}
+        label={'Item de Despesa'}
       />
       <Container>
         {!showCamera && (
@@ -50,22 +55,22 @@ export const ExpenseItem = () => {
               <Form.Control type="text" placeholder="Valor Total" />
               <Form.Label>Categoria</Form.Label>
               <Form.Select>
-                {expenseCategory.map((category) => (
+                {expenseCategory.map(category => (
                   <option>{category.name}</option>
                 ))}
               </Form.Select>
             </Form.Group>
             <Row
               style={{
-                width: "100%",
-                border: "1px dashed black",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                width: '100%',
+                border: '1px dashed black',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
-              {imageFromCamera !== "" ? (
-                <img src={imageFromCamera} alt={""} />
+              {imageFromCamera !== '' ? (
+                <img src={imageFromCamera} alt={''} />
               ) : (
                 <MdAddAPhoto size={150} onClick={() => setShowCamera(true)} />
               )}
@@ -73,7 +78,7 @@ export const ExpenseItem = () => {
           </>
         )}
         {showCamera && (
-          <div style={{ maxWidth: "90%" }}>
+          <div style={{ maxWidth: '90%' }}>
             <Webcam
               audio={false}
               ref={webcamRef}
@@ -86,13 +91,19 @@ export const ExpenseItem = () => {
         )}
       </Container>
       <Footer>
-        <Row style={{ width: "100%" }}>
+        <Row style={{ width: '100%' }}>
+          <Col xs={1}></Col>
+          <Col xs={2}>
+            <MdArrowBack size={32} onClick={() => navigate('/expenses')} />
+          </Col>
+        </Row>
+        <Row style={{ width: '100%' }}>
           <Col xs={10}></Col>
           <Col xs={2}>
-            <MdCheck size={32} onClick={() => navigate("/expenses")} />
+            <MdCheck size={32} onClick={() => navigate('/expenses')} />
           </Col>
         </Row>
       </Footer>
     </MainContainer>
-  );
-};
+  )
+}
