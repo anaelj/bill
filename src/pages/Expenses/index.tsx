@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 
 import { Container, CardContainer, Card, MainContainer } from "./styles";
 import { MdLocalShipping } from "react-icons/md";
+import { expenses } from "../../mocks";
 
 const Expenses: React.FC = () => {
   return (
@@ -15,7 +16,20 @@ const Expenses: React.FC = () => {
         icon={<MdLocalShipping color="#FB8500" size={24} />}
         label={"Despesas"}
       />
-      <Container></Container>
+      <Container>
+        {expenses.map((expense) => (
+          <div>
+            <div>
+              {expense.date}
+              {expense.number}
+            </div>
+            <div>
+              {expense.describe}
+              {expense.category.name}
+            </div>
+          </div>
+        ))}
+      </Container>
       <Footer>
         <CardContainer
           style={{
