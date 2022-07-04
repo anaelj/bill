@@ -13,39 +13,15 @@ const Expenses: React.FC = () => {
     <MainContainer>
       <Header
         icon={<MdLocalShipping color="#FB8500" size={24} />}
-        label={"Viagens"}
+        label={"Despesas"}
       />
-      <Container>
-        <CardContainer>
-          <Card>
-            <header>
-              <p>Entradas</p>
-              <img src={income} alt="Income" />
-            </header>
-            <h1 data-testid="balance-income">{1000}</h1>
-          </Card>
-          <Card>
-            <header>
-              <p>Saídas</p>
-              <img src={outcome} alt="Outcome" />
-            </header>
-            <h1 data-testid="balance-outcome">{900}</h1>
-          </Card>
-          <Card total>
-            <header>
-              <p>Total</p>
-              <img src={total} alt="Total" />
-            </header>
-            <h1 data-testid="balance-total">{100}</h1>
-          </Card>
-        </CardContainer>
-      </Container>
+      <Container></Container>
       <Footer>
-        <div
+        <CardContainer
           style={{
             display: "flex",
             alignContent: "center",
-            marginTop: "-220px",
+            marginTop: "-160px",
             position: "absolute",
           }}
         >
@@ -63,7 +39,7 @@ const Expenses: React.FC = () => {
             </header>
             <h1 data-testid="balance-total">{100}</h1>
           </Card>
-        </div>
+        </CardContainer>
       </Footer>
     </MainContainer>
   );
