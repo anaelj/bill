@@ -6,11 +6,15 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 import { Container, CardContainer, Card, MainContainer } from './styles'
+import { MdLocalShipping } from 'react-icons/md'
 
-const Despesas: React.FC = () => {
+const Expenses: React.FC = () => {
   return (
     <MainContainer>
-      <Header />
+      <Header
+        icon={<MdLocalShipping color="#FB8500" size={24} />}
+        label={'Viagens'}
+      />
       <Container>
         <CardContainer>
           <Card>
@@ -41,4 +45,4 @@ const Despesas: React.FC = () => {
   )
 }
 
-export default Despesas
+export default Expenses
