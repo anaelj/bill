@@ -91,14 +91,16 @@ export const ExpenseItem = () => {
         )}
       </Container>
       <Footer>
-        <Row style={{ width: '100%' }}>
-          <Col xs={1}></Col>
-          <Col xs={2}>
+        <Row
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Col xs={1}>
             <MdArrowBack size={32} onClick={() => navigate('/expenses')} />
           </Col>
-        </Row>
-        <Row style={{ width: '100%' }}>
-          <Col xs={10}></Col>
           <Col xs={2}>
             <MdCheck size={32} onClick={() => navigate('/expenses')} />
           </Col>
